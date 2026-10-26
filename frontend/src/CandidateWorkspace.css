@@ -1,0 +1,777 @@
+
+/* =========================================
+   APPLYTRACK AI — CANDIDATE WORKSPACE
+   Professional interview preparation UI
+========================================= */
+
+.candidate-workspace {
+  --cw-primary: #7c3aed;
+  --cw-primary-dark: #5b21b6;
+  --cw-accent: #c026d3;
+  --cw-text: #251b38;
+  --cw-muted: #81778f;
+  --cw-border: #ebe5f5;
+  --cw-surface: #ffffff;
+
+  min-width: 0;
+  padding: 26px;
+  color: var(--cw-text);
+  background:
+    radial-gradient(circle at 5% 0%, rgba(196, 181, 253, 0.16), transparent 30%),
+    radial-gradient(circle at 100% 30%, rgba(244, 114, 182, 0.08), transparent 28%),
+    #faf9fe;
+  border-radius: 22px;
+}
+
+/* Page header */
+
+.cw-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 27px;
+}
+
+.cw-eyebrow {
+  display: inline-block;
+  margin-bottom: 9px;
+  color: var(--cw-primary);
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.cw-title {
+  margin: 0;
+  color: var(--cw-text);
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 850;
+  letter-spacing: -1px;
+  line-height: 1.25;
+}
+
+.cw-subtitle {
+  max-width: 650px;
+  margin: 10px 0 0;
+  color: var(--cw-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Highlight panel */
+
+.cw-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 25px;
+  padding: 30px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 21px;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.19), transparent 30%),
+    linear-gradient(120deg, #4c1d95, #7c3aed 55%, #c026d3);
+  color: #ffffff;
+  box-shadow: 0 13px 32px rgba(109, 40, 217, 0.16);
+}
+
+.cw-hero::after {
+  content: "";
+  position: absolute;
+  right: -50px;
+  bottom: -110px;
+  width: 240px;
+  height: 240px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 25px rgba(255, 255, 255, 0.035),
+    0 0 0 50px rgba(255, 255, 255, 0.025);
+  pointer-events: none;
+}
+
+.cw-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.cw-hero h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(21px, 2.5vw, 28px);
+  font-weight: 850;
+  letter-spacing: -0.7px;
+  line-height: 1.35;
+}
+
+.cw-hero p {
+  max-width: 540px;
+  margin: 11px 0 0;
+  color: #eee5ff;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.cw-hero-badge {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.13);
+  color: #ffffff;
+  font-size: 34px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.cw-hero:hover .cw-hero-badge {
+  transform: translateY(-4px) rotate(-4deg);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Statistics */
+
+.cw-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 17px;
+  margin-bottom: 28px;
+}
+
+.cw-stat {
+  position: relative;
+  padding: 21px;
+  overflow: hidden;
+  border: 1px solid var(--cw-border);
+  border-radius: 17px;
+  background: linear-gradient(145deg, #ffffff, #fdfbff);
+  box-shadow: 0 4px 15px rgba(38, 20, 70, 0.025);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.cw-stat:hover {
+  transform: translateY(-4px);
+  border-color: #d8c7fb;
+  box-shadow: 0 12px 27px rgba(83, 47, 139, 0.08);
+}
+
+.cw-stat-label {
+  color: var(--cw-muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.cw-stat-value {
+  display: block;
+  margin-top: 11px;
+  color: var(--cw-text);
+  font-size: 30px;
+  font-weight: 850;
+  letter-spacing: -1px;
+}
+
+.cw-stat-note {
+  display: block;
+  margin-top: 6px;
+  color: #9b91a9;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.cw-stat-icon {
+  display: grid;
+  width: 39px;
+  height: 39px;
+  margin-bottom: 17px;
+  place-items: center;
+  border: 1px solid #e9ddff;
+  border-radius: 12px;
+  background: #f5f0ff;
+  color: var(--cw-primary);
+  font-size: 18px;
+}
+
+/* Section headings */
+
+.cw-section {
+  margin-top: 29px;
+}
+
+.cw-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 17px;
+}
+
+.cw-section-title {
+  margin: 0;
+  color: var(--cw-text);
+  font-size: 17px;
+  font-weight: 850;
+  letter-spacing: -0.35px;
+}
+
+.cw-section-description {
+  margin: 6px 0 0;
+  color: var(--cw-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Interview cards */
+
+.cw-interview-list {
+  display: grid;
+  gap: 15px;
+}
+
+.cw-interview-card {
+  position: relative;
+  padding: 21px;
+  overflow: hidden;
+  border: 1px solid var(--cw-border);
+  border-radius: 17px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(38, 20, 70, 0.025);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.cw-interview-card:hover {
+  transform: translateY(-3px);
+  border-color: #d7c4fb;
+  box-shadow: 0 12px 26px rgba(83, 47, 139, 0.07);
+}
+
+.cw-interview-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.cw-interview-title {
+  margin: 0;
+  color: var(--cw-text);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.cw-interview-company {
+  margin: 7px 0 0;
+  color: var(--cw-muted);
+  font-size: 12px;
+}
+
+.cw-interview-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px 16px;
+  margin-top: 17px;
+  color: #766b84;
+  font-size: 11px;
+}
+
+.cw-interview-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Status badges */
+
+.cw-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border: 1px solid;
+  border-radius: 9px;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.cw-status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.cw-status-scheduled,
+.cw-status-upcoming {
+  border-color: #ddd6fe;
+  background: #f5f3ff;
+  color: #6d28d9;
+}
+
+.cw-status-completed {
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.cw-status-cancelled,
+.cw-status-rejected {
+  border-color: #fecdd3;
+  background: #fff1f2;
+  color: #be123c;
+}
+
+.cw-status-pending {
+  border-color: #fde68a;
+  background: #fffbeb;
+  color: #a16207;
+}
+
+/* Buttons */
+
+.cw-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 19px;
+}
+
+.cw-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 41px;
+  padding: 0 15px;
+  border: 1px solid transparent;
+  border-radius: 11px;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cw-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.cw-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.cw-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.cw-button-primary {
+  background: linear-gradient(115deg, #6d28d9, #8b5cf6);
+  color: #ffffff;
+  box-shadow: 0 5px 13px rgba(109, 40, 217, 0.17);
+}
+
+.cw-button-primary:hover:not(:disabled) {
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.24);
+}
+
+.cw-button-secondary {
+  border-color: #e6def2;
+  background: #ffffff;
+  color: #5b21b6;
+}
+
+.cw-button-secondary:hover:not(:disabled) {
+  border-color: #c4b5fd;
+  background: #f8f5ff;
+}
+
+.cw-button-danger {
+  border-color: #fecdd3;
+  background: #fff5f6;
+  color: #be123c;
+}
+
+.cw-button-danger:hover:not(:disabled) {
+  background: #ffe4e8;
+}
+
+/* Interview preparation cards */
+
+.cw-prep-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.cw-prep-card {
+  position: relative;
+  padding: 23px;
+  overflow: hidden;
+  border: 1px solid var(--cw-border);
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(38, 20, 70, 0.025);
+  transition:
+    transform 0.23s ease,
+    box-shadow 0.23s ease,
+    border-color 0.23s ease;
+}
+
+.cw-prep-card:hover {
+  transform: translateY(-4px);
+  border-color: #d7c4fb;
+  box-shadow: 0 13px 28px rgba(83, 47, 139, 0.08);
+}
+
+.cw-prep-icon {
+  display: grid;
+  width: 45px;
+  height: 45px;
+  margin-bottom: 17px;
+  place-items: center;
+  border: 1px solid #e9ddff;
+  border-radius: 14px;
+  background: linear-gradient(145deg, #f5f0ff, #eee7ff);
+  color: var(--cw-primary);
+  font-size: 19px;
+  transition: transform 0.22s ease;
+}
+
+.cw-prep-card:hover .cw-prep-icon {
+  transform: scale(1.07) rotate(-4deg);
+}
+
+.cw-prep-card h3 {
+  margin: 0;
+  color: var(--cw-text);
+  font-size: 14px;
+  font-weight: 850;
+}
+
+.cw-prep-card p {
+  margin: 9px 0 0;
+  color: var(--cw-muted);
+  font-size: 12px;
+  line-height: 1.85;
+}
+
+/* Checklist */
+
+.cw-checklist {
+  display: grid;
+  gap: 11px;
+  margin-top: 17px;
+}
+
+.cw-checklist-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 11px;
+  padding: 13px;
+  border: 1px solid #eee8f6;
+  border-radius: 12px;
+  background: #fdfcff;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.cw-checklist-item:hover {
+  border-color: #d8c7fb;
+  background: #faf7ff;
+}
+
+.cw-checklist-item input {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: #7c3aed;
+  cursor: pointer;
+}
+
+.cw-checklist-item span {
+  color: #625672;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.cw-checklist-item:has(input:checked) {
+  border-color: #c4b5fd;
+  background: #f6f2ff;
+}
+
+.cw-checklist-item input:checked + span {
+  color: #766a86;
+  text-decoration: line-through;
+  text-decoration-color: #b5a4ce;
+}
+
+/* Practice questions */
+
+.cw-question-card {
+  padding: 22px;
+  border: 1px solid var(--cw-border);
+  border-radius: 17px;
+  background: linear-gradient(145deg, #ffffff, #fcfaff);
+}
+
+.cw-question-label {
+  display: inline-block;
+  margin-bottom: 11px;
+  padding: 6px 9px;
+  border: 1px solid #e9ddff;
+  border-radius: 7px;
+  background: #f5f0ff;
+  color: #6d28d9;
+  font-size: 10px;
+  font-weight: 850;
+}
+
+.cw-question-card h3 {
+  margin: 0;
+  color: var(--cw-text);
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.65;
+}
+
+.cw-answer {
+  width: 100%;
+  min-height: 125px;
+  box-sizing: border-box;
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid #e5dfed;
+  border-radius: 12px;
+  outline: none;
+  background: #fdfcff;
+  color: #30243f;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.8;
+  resize: vertical;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.cw-answer:focus {
+  border-color: #8b5cf6;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+.cw-answer::placeholder {
+  color: #a79bb5;
+}
+
+/* Progress */
+
+.cw-progress {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #eee8f7;
+}
+
+.cw-progress-bar {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #7c3aed, #a855f7, #db2777);
+  transition: width 0.35s ease;
+}
+
+/* Empty states */
+
+.cw-empty {
+  display: flex;
+  min-height: 210px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 22px;
+  border: 1px dashed #dcd2eb;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #ffffff, #faf7ff);
+  text-align: center;
+}
+
+.cw-empty-icon {
+  display: grid;
+  width: 57px;
+  height: 57px;
+  margin-bottom: 16px;
+  place-items: center;
+  border: 1px solid #e9ddff;
+  border-radius: 18px;
+  background: #f5f0ff;
+  color: #7c3aed;
+  font-size: 24px;
+}
+
+.cw-empty h3 {
+  margin: 0;
+  color: var(--cw-text);
+  font-size: 15px;
+  font-weight: 850;
+}
+
+.cw-empty p {
+  max-width: 390px;
+  margin: 9px 0 0;
+  color: var(--cw-muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* Alerts and loading */
+
+.cw-alert {
+  margin-bottom: 19px;
+  padding: 13px 15px;
+  border: 1px solid #fecdd3;
+  border-radius: 12px;
+  background: #fff1f2;
+  color: #be123c;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.cw-loading {
+  display: flex;
+  min-height: 170px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--cw-muted);
+  font-size: 12px;
+}
+
+.cw-spinner {
+  width: 25px;
+  height: 25px;
+  border: 3px solid #ede5ff;
+  border-top-color: #7c3aed;
+  border-radius: 50%;
+  animation: cw-spin 0.7s linear infinite;
+}
+
+@keyframes cw-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design */
+
+@media (max-width: 900px) {
+  .candidate-workspace {
+    padding: 20px;
+  }
+
+  .cw-stats {
+    gap: 12px;
+  }
+
+  .cw-stat {
+    padding: 17px;
+  }
+
+  .cw-hero {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 650px) {
+  .candidate-workspace {
+    padding: 15px;
+    border-radius: 16px;
+  }
+
+  .cw-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cw-hero {
+    align-items: flex-start;
+    padding: 23px;
+  }
+
+  .cw-hero-badge {
+    width: 57px;
+    height: 57px;
+    border-radius: 17px;
+    font-size: 25px;
+  }
+
+  .cw-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .cw-stat {
+    padding: 18px;
+  }
+
+  .cw-stat-icon {
+    margin-bottom: 11px;
+  }
+
+  .cw-prep-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cw-interview-top {
+    flex-direction: column;
+  }
+
+  .cw-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .cw-interview-card,
+  .cw-prep-card {
+    padding: 18px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .candidate-workspace *,
+  .candidate-workspace *::before,
+  .candidate-workspace *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

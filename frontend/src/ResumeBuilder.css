@@ -1,0 +1,1653 @@
+
+/* =========================================
+   APPLYTRACK AI — PROFESSIONAL RESUME STUDIO
+   ========================================= */
+.rb-page {
+  --rb-primary: #6366f1;
+  --rb-primary-dark: #4338ca;
+  --rb-primary-light: #eef2ff;
+  --rb-text: #1e293b;
+  --rb-muted: #64748b;
+  --rb-border: #e2e8f0;
+  --rb-surface: #ffffff;
+  --rb-background: #f5f7ff;
+
+  width: 100%;
+  min-height: 100vh;
+  padding: 25px;
+  color: var(--rb-text);
+  background:
+    radial-gradient(
+      ellipse at 5% 0%,
+      rgba(99, 102, 241, 0.12),
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 95% 15%,
+      rgba(14, 165, 233, 0.08),
+      transparent 30%
+    ),
+    var(--rb-background);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+
+.rb-page *,
+.rb-page *::before,
+.rb-page *::after {
+  box-sizing: border-box;
+}
+
+.rb-page button,
+.rb-page input,
+.rb-page textarea {
+  font: inherit;
+}
+
+.rb-page button {
+  cursor: pointer;
+}
+
+.rb-page button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.rb-topbar,
+.rb-brand,
+.rb-topbar-actions,
+.rb-hero,
+.rb-template-bar,
+.rb-template-options,
+.rb-template-option,
+.rb-editor-heading,
+.rb-section-nav-item,
+.rb-editor-content-top,
+.rb-editor-footer,
+.rb-preview-heading,
+.rb-preview-bottom,
+.rb-preview-bottom > div,
+.rb-entry-top,
+.rb-resume-item-heading,
+.rb-mobile-preview-header {
+  display: flex;
+  align-items: center;
+}
+
+.rb-topbar {
+  justify-content: space-between;
+  gap: 20px;
+  padding: 4px 0 24px;
+  border-bottom: 1px solid var(--rb-border);
+}
+
+.rb-brand {
+  gap: 12px;
+}
+
+.rb-brand-icon {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
+  color: white;
+  background: linear-gradient(135deg, #9678ff, #6343dc);
+  box-shadow: 0 7px 20px rgba(114, 84, 232, 0.23);
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.rb-brand-name {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
+}
+
+.rb-brand-name span {
+  color: var(--rb-primary);
+}
+
+.rb-brand-subtitle {
+  margin-top: 3px;
+  color: var(--rb-muted);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.rb-topbar-actions {
+  justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.rb-save-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-right: 8px;
+  color: var(--rb-muted);
+  font-size: 11px;
+}
+
+.rb-save-dot,
+.rb-live-tag > span,
+.rb-preview-live > span {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #22b879;
+}
+
+.rb-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 12px !important;
+  font-weight: 750;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.rb-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.rb-button-light {
+  color: var(--rb-text);
+  border-color: var(--rb-border);
+  background: var(--rb-surface);
+}
+
+.rb-button-light:hover:not(:disabled) {
+  background: var(--rb-background);
+}
+
+.rb-button-primary {
+  color: white;
+  background: linear-gradient(135deg, #8465f1, #6544dc);
+  box-shadow: 0 5px 15px rgba(114, 84, 232, 0.19);
+}
+
+.rb-button-primary:hover:not(:disabled) {
+  box-shadow: 0 8px 20px rgba(114, 84, 232, 0.28);
+}
+
+/* Hero */
+
+.rb-hero {
+  justify-content: space-between;
+  gap: 30px;
+  padding: 36px 0 30px;
+}
+
+.rb-eyebrow,
+.rb-small-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--rb-primary);
+  font-size: 9px;
+  font-weight: 850;
+  letter-spacing: 1.7px;
+}
+
+.rb-eyebrow {
+  margin-bottom: 13px;
+}
+
+.rb-eyebrow span {
+  font-size: 15px;
+}
+
+.rb-hero h1 {
+  max-width: 650px;
+  margin: 0;
+  font-size: clamp(28px, 3.1vw, 43px);
+  font-weight: 850;
+  line-height: 1.16;
+  letter-spacing: -1.8px;
+}
+
+.rb-hero h1 > span {
+  color: var(--rb-primary);
+}
+
+.rb-hero > div:first-child > p {
+  max-width: 620px;
+  margin: 14px 0 0;
+  color: var(--rb-muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.rb-hero-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 230px;
+  padding: 17px;
+  border: 1px solid var(--rb-border);
+  border-radius: 15px;
+  background: var(--rb-surface);
+  box-shadow: 0 5px 20px rgba(38, 30, 82, 0.035);
+}
+
+.rb-hero-badge-icon {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  border-radius: 12px;
+  color: var(--rb-primary);
+  background: var(--rb-primary-light);
+  font-size: 24px;
+}
+
+.rb-hero-badge strong,
+.rb-hero-badge span {
+  display: block;
+}
+
+.rb-hero-badge strong {
+  font-size: 12px;
+}
+
+.rb-hero-badge span {
+  max-width: 150px;
+  margin-top: 5px;
+  color: var(--rb-muted);
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+/* Template selection */
+
+.rb-template-bar {
+  justify-content: space-between;
+  gap: 22px;
+  margin-bottom: 22px;
+  padding: 18px 20px;
+  border: 1px solid var(--rb-border);
+  border-radius: 15px;
+  background: var(--rb-surface);
+}
+
+.rb-template-bar h2,
+.rb-editor-heading h2,
+.rb-preview-heading h2 {
+  margin: 6px 0 0;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.4px;
+}
+
+.rb-template-options {
+  gap: 9px;
+}
+
+.rb-template-option {
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 115px;
+  padding: 11px 13px;
+  border: 1px solid var(--rb-border);
+  border-radius: 11px;
+  color: var(--rb-text);
+  background: var(--rb-surface);
+  text-align: left;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.rb-template-option:hover,
+.rb-template-option.is-selected {
+  border-color: var(--rb-primary);
+  background: var(--rb-primary-light);
+}
+
+.rb-template-icon {
+  margin-bottom: 7px;
+  color: var(--rb-primary);
+  font-size: 18px;
+}
+
+.rb-template-name {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.rb-template-label {
+  margin-top: 3px;
+  color: var(--rb-muted);
+  font-size: 9px;
+}
+
+.rb-template-check {
+  position: absolute;
+  top: 8px;
+  right: 9px;
+  color: var(--rb-primary);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+/* Main workspace */
+
+.rb-workspace {
+  display: grid;
+  grid-template-columns: minmax(205px, 0.72fr) minmax(300px, 1.2fr) minmax(340px, 1.2fr);
+  align-items: start;
+  gap: 18px;
+}
+
+.rb-editor,
+.rb-editor-content,
+.rb-preview-panel {
+  min-width: 0;
+  border: 1px solid var(--rb-border);
+  border-radius: 15px;
+  background: var(--rb-surface);
+  box-shadow: 0 5px 22px rgba(38, 30, 82, 0.025);
+}
+
+.rb-editor {
+  position: sticky;
+  top: 20px;
+  padding: 17px 12px;
+}
+
+.rb-editor-heading {
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 3px 5px 16px;
+}
+
+.rb-editor-heading h2 {
+  font-size: 15px;
+}
+
+.rb-editor-count {
+  padding: 5px 7px;
+  border-radius: 7px;
+  color: var(--rb-primary);
+  background: var(--rb-primary-light);
+  font-size: 9px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.rb-section-nav {
+  display: grid;
+  gap: 5px;
+}
+
+.rb-section-nav-item {
+  width: 100%;
+  gap: 10px;
+  padding: 11px 9px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--rb-text);
+  background: transparent;
+  text-align: left;
+  transition: background 0.2s ease;
+}
+
+.rb-section-nav-item:hover {
+  background: var(--rb-background);
+}
+
+.rb-section-nav-item.is-active {
+  border-color: #e5ddff;
+  background: var(--rb-primary-light);
+}
+
+.rb-section-nav-icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  color: var(--rb-muted);
+  background: var(--rb-background);
+  font-size: 14px;
+}
+
+.rb-section-nav-item.is-active .rb-section-nav-icon {
+  color: white;
+  background: var(--rb-primary);
+}
+
+.rb-section-nav-text {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.rb-section-nav-text strong {
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.rb-section-nav-text small {
+  color: var(--rb-muted);
+  font-size: 9px;
+}
+
+.rb-section-nav-arrow {
+  margin-left: auto;
+  color: var(--rb-muted);
+  font-size: 18px;
+}
+
+.rb-editor-tip {
+  display: flex;
+  gap: 9px;
+  margin: 18px 1px 0;
+  padding: 13px 11px;
+  border: 1px solid #e9e1ff;
+  border-radius: 11px;
+  background: linear-gradient(135deg, #f8f5ff, #fcfaff);
+}
+
+.rb-editor-tip > span {
+  color: var(--rb-primary);
+}
+
+.rb-editor-tip strong {
+  display: block;
+  font-size: 10px;
+}
+
+.rb-editor-tip p {
+  margin: 6px 0 0;
+  color: var(--rb-muted);
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+/* Editor content */
+
+.rb-editor-content {
+  padding: 21px;
+}
+
+.rb-editor-content-top {
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 23px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--rb-border);
+}
+
+.rb-live-tag,
+.rb-preview-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #1b9d68;
+  font-size: 9px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.rb-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 23px;
+}
+
+.rb-section-number {
+  display: grid;
+  place-items: center;
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  color: var(--rb-primary);
+  background: var(--rb-primary-light);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.rb-section-heading h3 {
+  margin: 1px 0 6px;
+  font-size: 17px;
+  font-weight: 850;
+  letter-spacing: -0.4px;
+}
+
+.rb-section-heading p {
+  margin: 0;
+  color: var(--rb-muted);
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+.rb-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px 13px;
+}
+
+.rb-field {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.rb-field > span {
+  color: var(--rb-text);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.rb-field input,
+.rb-field textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--rb-border);
+  border-radius: 9px;
+  outline: none;
+  color: var(--rb-text);
+  background: var(--rb-surface);
+  font-size: 11px;
+  line-height: 1.6;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rb-field input {
+  min-height: 40px;
+}
+
+.rb-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.rb-field input::placeholder,
+.rb-field textarea::placeholder {
+  color: #a5a7b7;
+}
+
+.rb-field input:focus,
+.rb-field textarea:focus {
+  border-color: var(--rb-primary);
+  box-shadow: 0 0 0 3px rgba(114, 84, 232, 0.09);
+}
+
+.rb-full-width {
+  grid-column: 1 / -1;
+}
+
+.rb-entry-card {
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 1px solid var(--rb-border);
+  border-radius: 12px;
+  background: var(--rb-background);
+}
+
+.rb-entry-top {
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.rb-entry-label {
+  font-size: 11px;
+  font-weight: 850;
+}
+
+.rb-remove {
+  padding: 5px 7px;
+  border: 0;
+  border-radius: 6px;
+  color: #cf4c65;
+  background: #fff0f2;
+  font-size: 10px !important;
+  font-weight: 800;
+}
+
+.rb-remove:hover {
+  background: #ffe0e6;
+}
+
+.rb-entry-description {
+  margin-top: 16px;
+}
+
+.rb-add-button {
+  width: 100%;
+  margin-top: 2px;
+  padding: 12px;
+  border: 1px dashed #b9a9f7;
+  border-radius: 9px;
+  color: var(--rb-primary);
+  background: var(--rb-primary-light);
+  font-size: 11px !important;
+  font-weight: 850;
+  transition: background 0.2s ease;
+}
+
+.rb-add-button:hover {
+  background: #e7dfff;
+}
+
+.rb-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 13px;
+  border: 1px solid #e8e0ff;
+  border-radius: 10px;
+  background: #faf8ff;
+}
+
+.rb-tip > span {
+  color: var(--rb-primary);
+  font-size: 15px;
+}
+
+.rb-tip p {
+  margin: 0;
+  color: var(--rb-muted);
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+.rb-tip strong {
+  color: var(--rb-text);
+}
+
+.rb-editor-footer {
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 26px;
+  padding-top: 17px;
+  border-top: 1px solid var(--rb-border);
+}
+
+.rb-editor-footer > span {
+  color: var(--rb-muted);
+  font-size: 9px;
+  text-align: center;
+}
+
+/* Preview */
+
+.rb-preview-panel {
+  overflow: hidden;
+}
+
+.rb-preview-heading {
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px;
+  border-bottom: 1px solid var(--rb-border);
+}
+
+.rb-preview-heading h2 {
+  font-size: 15px;
+}
+
+.rb-preview-live {
+  padding: 6px 9px;
+  border-radius: 7px;
+  background: #e9fbf2;
+}
+
+.rb-paper-wrap {
+  overflow: auto;
+  padding: 14px;
+  background: #f0f0f6;
+}
+
+.rb-resume-paper {
+  width: 100%;
+  min-height: 470px;
+  padding: 24px 22px;
+  color: #25283a;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(30, 30, 55, 0.08);
+  overflow-wrap: anywhere;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.rb-resume-header {
+  padding-bottom: 17px;
+  border-bottom: 2px solid #6c4ce1;
+}
+
+.rb-resume-header h1 {
+  margin: 0;
+  color: #27213d;
+  font-size: clamp(19px, 2vw, 27px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.7px;
+}
+
+.rb-resume-job-title {
+  margin-top: 6px;
+  color: #6b4ed2;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.rb-resume-contact,
+.rb-resume-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 8px;
+  margin-top: 10px;
+  color: #64677a;
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+.rb-resume-links {
+  color: #6046c5;
+}
+
+.rb-resume-section {
+  margin-top: 19px;
+}
+
+.rb-resume-section h2 {
+  margin: 0 0 11px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #e4e1ef;
+  color: #30264d;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.rb-resume-paragraph {
+  margin: 6px 0 0;
+  color: #515469;
+  font-size: 9px;
+  line-height: 1.8;
+  white-space: pre-line;
+}
+
+.rb-resume-item {
+  margin-bottom: 13px;
+  break-inside: avoid;
+}
+
+.rb-resume-item-heading {
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.rb-resume-item-heading strong {
+  color: #302b40;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.rb-resume-item-heading > span {
+  flex-shrink: 0;
+  color: #77798b;
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+.rb-resume-item-subheading {
+  margin-top: 3px;
+  color: #6d51cc;
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+.rb-resume-bullets {
+  margin: 6px 0 0;
+  padding-left: 15px;
+  color: #515469;
+  font-size: 8px;
+  line-height: 1.8;
+}
+
+.rb-resume-footer {
+  margin-top: 25px;
+  padding-top: 10px;
+  border-top: 1px solid #eeeeF4;
+  color: #a0a0b0;
+  font-size: 7px;
+  text-align: center;
+}
+
+/* Template variations */
+
+.rb-template-modern .rb-resume-header {
+  padding: 17px;
+  border: 0;
+  border-radius: 8px;
+  background: #30264d;
+}
+
+.rb-template-modern .rb-resume-header h1,
+.rb-template-modern .rb-resume-job-title {
+  color: white;
+}
+
+.rb-template-modern .rb-resume-contact,
+.rb-template-modern .rb-resume-links {
+  color: #e4dcff;
+}
+
+.rb-template-modern .rb-resume-section h2 {
+  color: #6043cb;
+}
+
+.rb-template-minimal .rb-resume-header {
+  border-bottom: 1px solid #cfd1d9;
+}
+
+.rb-template-minimal .rb-resume-header h1,
+.rb-template-minimal .rb-resume-job-title,
+.rb-template-minimal .rb-resume-item-subheading,
+.rb-template-minimal .rb-resume-links {
+  color: #333b4c;
+}
+
+.rb-template-minimal .rb-resume-section h2 {
+  border-bottom: 0;
+  letter-spacing: 0.7px;
+}
+
+/* Notifications and footer */
+
+.rb-notice {
+  position: fixed;
+  z-index: 9999;
+  top: 22px;
+  right: 22px;
+  padding: 13px 17px;
+  border: 1px solid #d9ceff;
+  border-radius: 10px;
+  color: var(--rb-primary-dark);
+  background: var(--rb-surface);
+  box-shadow: 0 8px 30px rgba(25, 20, 60, 0.12);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.rb-bottom-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 25px 0 5px;
+  color: var(--rb-muted);
+  font-size: 10px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.rb-bottom-note > span {
+  color: var(--rb-primary);
+}
+
+.rb-mobile-preview-button,
+.rb-mobile-preview-overlay {
+  display: none;
+}
+
+/* Global dark mode compatibility */
+
+html.dark-mode .rb-page,
+body.dark-mode .rb-page,
+.app-dark-mode .rb-page {
+  --rb-text: #eeecf8;
+  --rb-muted: #aaa7c0;
+  --rb-border: #343148;
+  --rb-surface: #211f31;
+  --rb-background: #181725;
+  --rb-primary-light: #302747;
+
+  background:
+    radial-gradient(ellipse at 10% 0%, rgba(126, 87, 255, 0.12), transparent 32%),
+    var(--rb-background);
+}
+
+html.dark-mode .rb-template-option.is-selected,
+body.dark-mode .rb-template-option.is-selected,
+.app-dark-mode .rb-template-option.is-selected {
+  border-color: #8e77f5;
+  background: #302747;
+}
+
+html.dark-mode .rb-editor-tip,
+body.dark-mode .rb-editor-tip,
+.app-dark-mode .rb-editor-tip,
+html.dark-mode .rb-tip,
+body.dark-mode .rb-tip,
+.app-dark-mode .rb-tip {
+  border-color: #3c3158;
+  background: #292438;
+}
+
+html.dark-mode .rb-entry-card,
+body.dark-mode .rb-entry-card,
+.app-dark-mode .rb-entry-card {
+  background: #1c1a29;
+}
+
+html.dark-mode .rb-field input,
+html.dark-mode .rb-field textarea,
+body.dark-mode .rb-field input,
+body.dark-mode .rb-field textarea,
+.app-dark-mode .rb-field input,
+.app-dark-mode .rb-field textarea {
+  border-color: var(--rb-border);
+  color: var(--rb-text);
+  background: #191725;
+}
+
+html.dark-mode .rb-remove,
+body.dark-mode .rb-remove,
+.app-dark-mode .rb-remove {
+  color: #ff9eae;
+  background: #3a242f;
+}
+
+/* Tablet */
+
+@media (max-width: 1250px) {
+  .rb-page {
+    padding: 20px;
+  }
+
+  .rb-workspace {
+    grid-template-columns: minmax(190px, 0.7fr) minmax(300px, 1.3fr);
+  }
+
+  .rb-preview-panel {
+    grid-column: 2;
+  }
+
+  .rb-editor {
+    grid-row: span 2;
+  }
+
+  .rb-paper-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  .rb-resume-paper {
+    max-width: 520px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 760px) {
+  .rb-page {
+    padding: 14px;
+  }
+
+  .rb-topbar {
+    align-items: flex-start;
+    padding-bottom: 17px;
+  }
+
+  .rb-brand-icon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .rb-brand-name {
+    font-size: 16px;
+  }
+
+  .rb-topbar-actions {
+    gap: 7px;
+  }
+
+  .rb-save-indicator {
+    display: none;
+  }
+
+  .rb-topbar-actions .rb-button {
+    min-height: 35px;
+    padding: 8px 10px;
+    font-size: 10px !important;
+  }
+
+  .rb-hero {
+    padding: 27px 0 23px;
+  }
+
+  .rb-hero h1 {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+  }
+
+  .rb-hero > div:first-child > p {
+    font-size: 12px;
+  }
+
+  .rb-hero-badge {
+    display: none;
+  }
+
+  .rb-template-bar {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .rb-template-options {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .rb-template-option {
+    min-width: 0;
+    padding: 10px;
+  }
+
+  .rb-workspace {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .rb-editor,
+  .rb-editor-content,
+  .rb-preview-panel {
+    width: 100%;
+  }
+
+  .rb-editor {
+    position: static;
+  }
+
+  .rb-section-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rb-section-nav-item {
+    padding: 9px 7px;
+  }
+
+  .rb-section-nav-text strong {
+    font-size: 9px;
+  }
+
+  .rb-editor-content {
+    padding: 17px;
+  }
+
+  .rb-form-grid {
+    gap: 14px 10px;
+  }
+
+  .rb-editor-footer .rb-button {
+    padding: 9px;
+    font-size: 10px !important;
+  }
+
+  .rb-preview-panel {
+    display: none;
+  }
+
+  .rb-mobile-preview-button {
+    display: block;
+    margin-top: 15px;
+  }
+
+  .rb-mobile-preview-button .rb-button {
+    width: 100%;
+  }
+
+  .rb-mobile-preview-overlay {
+    position: fixed;
+    z-index: 10000;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    background: #f0f0f6;
+  }
+
+  .rb-mobile-preview-header {
+    justify-content: space-between;
+    padding: 16px;
+    color: #242238;
+    background: white;
+  }
+
+  .rb-mobile-preview-header button {
+    padding: 7px 10px;
+    border: 0;
+    border-radius: 7px;
+    background: #f0eef8;
+  }
+
+  .rb-mobile-preview-document {
+    overflow: auto;
+    padding: 12px;
+  }
+
+  .rb-mobile-preview-document .rb-resume-paper {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .rb-bottom-note {
+    align-items: flex-start;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 430px) {
+  .rb-topbar {
+    flex-direction: column;
+  }
+
+  .rb-topbar-actions {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .rb-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .rb-full-width {
+    grid-column: auto;
+  }
+
+  .rb-template-name {
+    font-size: 10px;
+  }
+
+  .rb-editor-footer > span {
+    max-width: 75px;
+  }
+}
+
+/* PDF export */
+
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
+@media print {
+  html,
+  body {
+    width: 100%;
+    height: auto;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #20243a !important;
+    background: white !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body * {
+    visibility: hidden !important;
+  }
+
+  .rb-page,
+  .rb-page * {
+    visibility: visible !important;
+  }
+
+  .rb-page {
+    width: 100% !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #20243a !important;
+    background: white !important;
+  }
+
+  .rb-topbar,
+  .rb-hero,
+  .rb-template-bar,
+  .rb-editor,
+  .rb-editor-content,
+  .rb-preview-heading,
+  .rb-preview-bottom,
+  .rb-bottom-note,
+  .rb-mobile-preview-button,
+  .rb-mobile-preview-overlay,
+  .rb-notice {
+    display: none !important;
+  }
+
+  .rb-workspace {
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .rb-preview-panel {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: white !important;
+  }
+
+  .rb-paper-wrap {
+    display: block !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  .rb-resume-paper {
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #25283a !important;
+    background: white !important;
+    box-shadow: none !important;
+    font-size: 9pt !important;
+  }
+
+  .rb-resume-header,
+  .rb-resume-section,
+  .rb-resume-item {
+    break-inside: avoid;
+  }
+
+  .rb-resume-header h1 {
+    font-size: 22pt !important;
+  }
+
+  .rb-resume-section h2 {
+    font-size: 9pt !important;
+  }
+
+  .rb-resume-paragraph,
+  .rb-resume-bullets {
+    font-size: 8.5pt !important;
+    line-height: 1.5 !important;
+  }
+
+  .rb-resume-item-heading strong {
+    font-size: 9pt !important;
+  }
+
+  .rb-resume-footer {
+    color: #777 !important;
+  }
+}
+/* =========================================
+   APPLYTRACK AI — PREMIUM INDIGO THEME
+   No pink accents
+   ========================================= */
+
+/* Smooth page appearance */
+.rb-page {
+  animation: rbPageEnter 0.45s ease both;
+}
+
+@keyframes rbPageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Premium brand gradient */
+.rb-brand-icon {
+  background: linear-gradient(135deg, #818cf8, #4f46e5, #2563eb);
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rb-brand-icon:hover {
+  transform: rotate(-5deg) scale(1.05);
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.35);
+}
+
+.rb-brand-name span {
+  color: #6366f1;
+}
+
+/* Hero heading */
+.rb-hero h1 > span {
+  color: #4f46e5;
+  background: linear-gradient(110deg, #6366f1, #2563eb, #0891b2);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.rb-hero-badge {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.rb-hero-badge:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(49, 46, 129, 0.09);
+}
+
+.rb-hero-badge-icon {
+  color: #4f46e5;
+  background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+}
+
+/* Buttons */
+.rb-button {
+  transition:
+    transform 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.rb-button-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #6366f1, #4338ca);
+  box-shadow: 0 5px 16px rgba(79, 70, 229, 0.2);
+}
+
+.rb-button-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #4f46e5, #3730a3);
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.3);
+}
+
+.rb-button-light:hover:not(:disabled) {
+  border-color: #a5b4fc;
+  background: #eef2ff;
+  transform: translateY(-2px);
+}
+
+/* Template cards */
+.rb-template-option {
+  overflow: hidden;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.rb-template-option:hover {
+  transform: translateY(-3px);
+  border-color: #818cf8;
+  background: #f5f7ff;
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.09);
+}
+
+.rb-template-option.is-selected {
+  border-color: #6366f1;
+  background: linear-gradient(135deg, #eef2ff, #f0f9ff);
+  box-shadow: inset 0 0 0 1px rgba(99, 102, 241, 0.12);
+}
+
+.rb-template-icon {
+  color: #4f46e5;
+}
+
+/* Main workspace cards */
+.rb-editor,
+.rb-editor-content,
+.rb-preview-panel {
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.rb-editor:hover,
+.rb-editor-content:hover,
+.rb-preview-panel:hover {
+  border-color: #d5dafe;
+  box-shadow: 0 12px 32px rgba(49, 46, 129, 0.055);
+}
+
+/* Sidebar navigation */
+.rb-section-nav-item {
+  position: relative;
+  overflow: hidden;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.rb-section-nav-item:hover {
+  transform: translateX(3px);
+  border-color: #e0e7ff;
+  background: #f5f7ff;
+}
+
+.rb-section-nav-item.is-active {
+  border-color: #c7d2fe;
+  background: linear-gradient(115deg, #eef2ff, #f0f9ff);
+}
+
+.rb-section-nav-icon {
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.rb-section-nav-item:hover .rb-section-nav-icon {
+  transform: scale(1.06);
+}
+
+.rb-section-nav-item.is-active .rb-section-nav-icon {
+  color: #ffffff;
+  background: linear-gradient(135deg, #6366f1, #2563eb);
+}
+
+/* Section number */
+.rb-section-number {
+  color: #4f46e5;
+  background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+  transition: transform 0.2s ease;
+}
+
+.rb-section-heading:hover .rb-section-number {
+  transform: translateY(-2px);
+}
+
+/* Input focus */
+.rb-field input,
+.rb-field textarea {
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.rb-field input:hover,
+.rb-field textarea:hover {
+  border-color: #c7d2fe;
+}
+
+.rb-field input:focus,
+.rb-field textarea:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.11);
+}
+
+/* Experience, education, projects and certification cards */
+.rb-entry-card {
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.rb-entry-card:hover {
+  transform: translateY(-2px);
+  border-color: #c7d2fe;
+  box-shadow: 0 8px 22px rgba(49, 46, 129, 0.045);
+}
+
+/* Add section button */
+.rb-add-button {
+  border-color: #a5b4fc;
+  color: #4338ca;
+  background: linear-gradient(135deg, #eef2ff, #f0f9ff);
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.rb-add-button:hover {
+  transform: translateY(-2px);
+  border-color: #6366f1;
+  background: linear-gradient(135deg, #e0e7ff, #e0f2fe);
+}
+
+/* Tips */
+.rb-editor-tip,
+.rb-tip {
+  border-color: #dbeafe;
+  background: linear-gradient(135deg, #eef2ff, #f0f9ff);
+}
+
+.rb-editor-tip > span,
+.rb-tip > span {
+  color: #4f46e5;
+}
+
+/* Live status */
+.rb-live-tag,
+.rb-preview-live {
+  color: #047857;
+}
+
+.rb-preview-live {
+  background: #ecfdf5;
+}
+
+/* Resume preview */
+.rb-paper-wrap {
+  background:
+    radial-gradient(circle at 15% 10%, #e0e7ff, transparent 45%),
+    #f1f5f9;
+}
+
+.rb-resume-header {
+  border-bottom-color: #4f46e5;
+}
+
+.rb-resume-job-title {
+  color: #4f46e5;
+}
+
+.rb-resume-links {
+  color: #4338ca;
+}
+
+.rb-resume-section h2 {
+  border-bottom-color: #dbeafe;
+  color: #3730a3;
+}
+
+.rb-resume-item-subheading {
+  color: #4338ca;
+}
+
+/* Modern resume template */
+.rb-template-modern .rb-resume-header {
+  background: linear-gradient(135deg, #312e81, #1d4ed8);
+}
+
+.rb-template-modern .rb-resume-section h2 {
+  color: #4338ca;
+}
+
+/* Remove any remaining pink tones from the remove button */
+.rb-remove {
+  color: #b91c1c;
+  background: #fef2f2;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.rb-remove:hover {
+  transform: translateY(-1px);
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+/* Notification */
+.rb-notice {
+  border-color: #c7d2fe;
+  color: #3730a3;
+  background: #ffffff;
+  box-shadow: 0 12px 35px rgba(49, 46, 129, 0.14);
+  animation: rbNoticeEnter 0.25s ease both;
+}
+
+@keyframes rbNoticeEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keyboard accessibility */
+.rb-page button:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.4);
+  outline-offset: 3px;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .rb-page,
+  .rb-page *,
+  .rb-page *::before,
+  .rb-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

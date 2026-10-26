@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Django database and uploaded files
+*.sqlite3
+media/
+backend/resumes/*
+backend/candidate_resumes/*
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Node.js
+node_modules/
+**/node_modules/
+frontend/dist/
+backend/dist/
+
+# Editors and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

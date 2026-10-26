@@ -1,0 +1,264 @@
+
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  background: #fff;
+  color: #29263d;
+  font-family: "DM Sans", sans-serif;
+}
+
+.auth-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 38px clamp(25px, 5vw, 75px);
+  color: white;
+  background:
+    radial-gradient(ellipse at 15% 85%, #7550d8 0, transparent 45%),
+    radial-gradient(ellipse at 90% 10%, #3e4ba6 0, transparent 40%),
+    linear-gradient(145deg, #191735, #30265e 65%, #533a87);
+}
+
+.auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.auth-logo {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #a99aff, #7655e8);
+  font-size: 24px;
+}
+
+.auth-brand b,
+.auth-mobile-brand b {
+  color: #a38dff;
+}
+
+.auth-message {
+  max-width: 510px;
+  padding: 50px 0;
+}
+
+.auth-eyebrow {
+  color: #8d73ed;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.auth-visual .auth-eyebrow {
+  color: #c3b5ff;
+}
+
+.auth-message h1 {
+  margin: 20px 0;
+  font-size: clamp(32px, 4vw, 53px);
+  line-height: 1.17;
+  letter-spacing: -1.8px;
+}
+
+.auth-message > p {
+  max-width: 420px;
+  color: #d1cde4;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.auth-feature {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  margin-top: 29px;
+}
+
+.auth-feature > span {
+  display: grid;
+  place-items: center;
+  width: 29px;
+  height: 29px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  color: #d3c8ff;
+  background: #ffffff1a;
+}
+
+.auth-feature strong {
+  font-size: 13px;
+}
+
+.auth-feature p {
+  margin: 5px 0 0;
+  color: #c7c1df;
+  font-size: 11px;
+}
+
+.auth-footer {
+  color: #c5bedf;
+  font-size: 11px;
+}
+
+.auth-form-side {
+  display: grid;
+  place-items: center;
+  padding: 35px 24px;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 380px;
+}
+
+.auth-form h2 {
+  margin: 14px 0 8px;
+  font-size: 31px;
+  letter-spacing: -1px;
+}
+
+.auth-description {
+  margin: 0 0 30px;
+  color: #9290a4;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.auth-form label {
+  display: block;
+  margin: 17px 0 8px;
+  color: #48455c;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.auth-form input {
+  width: 100%;
+  min-height: 45px;
+  padding: 12px 13px;
+  border: 1px solid #e7e5f0;
+  border-radius: 9px;
+  outline: none;
+  background: #fdfcff;
+  color: #29263d;
+  font: inherit;
+  font-size: 12px;
+}
+
+.auth-form input:focus {
+  border-color: #9279ee;
+  box-shadow: 0 0 0 3px #8e74ed1c;
+}
+
+.auth-submit {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  border: 0;
+  border-radius: 9px;
+  background: linear-gradient(100deg, #8060e9, #6849d2);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 6px 15px #7455e82a;
+}
+
+.auth-submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.auth-error,
+.auth-success {
+  margin-top: 14px;
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.auth-error {
+  color: #a12c43;
+  background: #fff0f2;
+}
+
+.auth-success {
+  color: #207b52;
+  background: #eaf8f0;
+}
+
+.auth-switch {
+  margin-top: 23px;
+  color: #89869d;
+  text-align: center;
+  font-size: 11px;
+}
+
+.auth-switch button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: #7455e8;
+  font-size: inherit;
+  font-weight: 800;
+}
+
+.auth-privacy {
+  margin-top: 40px;
+  color: #aaa7b8;
+  text-align: center;
+  font-size: 10px;
+}
+
+.auth-mobile-brand {
+  display: none;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .auth-page {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-visual {
+    display: none;
+  }
+
+  .auth-form-side {
+    min-height: 100vh;
+    padding: 30px 23px;
+  }
+
+  .auth-mobile-brand {
+    display: block;
+  }
+
+  .auth-form h2 {
+    font-size: 28px;
+  }
+}
+.auth-form select {
+    width: 100%;
+    padding: 13px 14px;
+    margin: 8px 0 18px;
+    border: 1px solid #dedbea;
+    border-radius: 10px;
+    background: #fff;
+    color: #29243a;
+    font: inherit;
+    outline: none;
+}
+
+.auth-form select:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
