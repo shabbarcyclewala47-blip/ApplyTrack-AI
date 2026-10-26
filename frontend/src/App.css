@@ -140,11 +140,30 @@ p {
   height: 100vh;
   padding: 24px 17px;
   overflow-y: auto;
-  background: #ffffff;
+  background: #17233f;
   border-right: 1px solid var(--at-border);
   scrollbar-width: thin;
   scrollbar-color: #d8e0ed transparent;
   z-index: 20;
+}
+/* Candidate sidebar */
+.sidebar.role-candidate {
+  background: #17233f;
+}
+
+/* Recruiter sidebar */
+.sidebar.role-recruiter {
+  background: linear-gradient(180deg, #3b1d5e 0%, #25143f 100%);
+}
+
+/* Interviewer sidebar */
+.sidebar.role-interviewer {
+  background: linear-gradient(180deg, #124e59 0%, #0b303c 100%);
+}
+
+/* Admin sidebar */
+.sidebar.role-admin {
+  background: linear-gradient(180deg, #252b3b 0%, #171c29 100%);
 }
 
 .sidebar::-webkit-scrollbar {
@@ -2628,4 +2647,16 @@ textarea:focus-visible {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+}
+/* Sign Out button below Settings */
+.nav-item.sign-out-item {
+  margin-top: 8px;
+  color: #f87171;
+  border: 1px solid transparent;
+}
+
+.nav-item.sign-out-item:hover {
+  background: rgba(248, 113, 113, 0.12);
+  color: #ef4444;
+  border-color: rgba(248, 113, 113, 0.2);
 }

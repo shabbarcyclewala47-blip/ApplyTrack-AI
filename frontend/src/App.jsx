@@ -560,145 +560,128 @@ const interviewerCancelled = interviewerDashboardInterviews.filter(
     return <Auth onLogin={handleLogin} />;
   }
 
-  function renderSidebar() {
-    return (
-      <aside className="sidebar">
-        <div className="brand">
-          <div className="brand-mark">A</div>
+function renderSidebar() {
+  return (
+    <aside className="sidebar">
+      <div className="brand">
+        <div className="brand-mark">A</div>
 
-          <div>
-            <h2>
-              ApplyTrack<span>AI</span>
-            </h2>
-            <p>YOUR CAREER, SIMPLIFIED</p>
-          </div>
+        <div>
+          <h2>
+            ApplyTrack<span>AI</span>
+          </h2>
+          <p>YOUR CAREER, SIMPLIFIED</p>
         </div>
+      </div>
 
-        <div className="workspace-label">YOUR WORKSPACE</div>
+      <div className="workspace-label">YOUR WORKSPACE</div>
 
-        <nav className="nav-menu">
-          {menu.map((item) => (
-            <button
-              key={item.name}
-              type="button"
-              className={`nav-item ${activeTab === item.name ? "active" : ""
-                }`}
-              onClick={() => setActiveTab(item.name)}
-            >
-              <span className="nav-icon">{item.icon}</span>
-<span>{item.name}</span>
+      <nav className="nav-menu">
+        {menu.map((item) => (
+          <button
+            key={item.name}
+            type="button"
+            className={`nav-item ${
+              activeTab === item.name ? "active" : ""
+            }`}
+            onClick={() => setActiveTab(item.name)}
+          >
+            <span className="nav-icon">{item.icon}</span>
+            <span>{item.name}</span>
 
-{role === "candidate" &&
-  item.name === "Interviews" &&
-  unreadNotificationCount > 0 && (
-    <span
-      style={{
-        marginLeft: "auto",
-        minWidth: 22,
-        height: 22,
-        padding: "0 6px",
-        display: "inline-flex",
-        alignItems: "center",
-        justifyContent: "center",
-        borderRadius: 999,
-        background: "#dc2626",
-        color: "#ffffff",
-        fontSize: 12,
-        fontWeight: 800,
-      }}
-    >
-      {unreadNotificationCount > 99
-        ? "99+"
-        : unreadNotificationCount}
-    </span>
-  )}
+            {role === "candidate" &&
+              item.name === "Interviews" &&
+              unreadNotificationCount > 0 && (
+                <span
+                  style={{
+                    marginLeft: "auto",
+                    minWidth: 22,
+                    height: 22,
+                    padding: "0 6px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 999,
+                    background: "#dc2626",
+                    color: "#ffffff",
+                    fontSize: 12,
+                    fontWeight: 800,
+                  }}
+                >
+                  {unreadNotificationCount > 99
+                    ? "99+"
+                    : unreadNotificationCount}
+                </span>
+              )}
 
-              {role === "recruiter" &&
-                item.name === "Applicants" && (
-                  <span
-                    style={{
-                      marginLeft: "auto",
-                      minWidth: 24,
-                      height: 24,
-                      padding: "0 7px",
-                      display: "inline-flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: 999,
-                      background:
-                        recruiterApplicationCount > 0
-                          ? "#0f766e"
-                          : "#e5e7eb",
-                      color:
-                        recruiterApplicationCount > 0
-                          ? "#ffffff"
-                          : "#6b7280",
-                      fontSize: 12,
-                      fontWeight: 800,
-                    }}
-                  >
-                    {recruiterApplicationCount}
-                  </span>
-                )}
-            </button>
-          ))}
-        </nav>
+            {role === "recruiter" &&
+              item.name === "Applicants" && (
+                <span
+                  style={{
+                    marginLeft: "auto",
+                    minWidth: 24,
+                    height: 24,
+                    padding: "0 7px",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 999,
+                    background:
+                      recruiterApplicationCount > 0
+                        ? "#0f766e"
+                        : "#e5e7eb",
+                    color:
+                      recruiterApplicationCount > 0
+                        ? "#ffffff"
+                        : "#6b7280",
+                    fontSize: 12,
+                    fontWeight: 800,
+                  }}
+                >
+                  {recruiterApplicationCount}
+                </span>
+              )}
+          </button>
+        ))}
 
-        <div className="sidebar-bottom">
-          <div className="upgrade-card">
-            <div className="upgrade-icon">✦</div>
+        {/* Sign Out appears immediately after Settings */}
+        <button
+          type="button"
+          className="nav-item sign-out-item"
+          onClick={handleLogout}
+        >
+          <span className="nav-icon">↪</span>
+          <span>Sign Out</span>
+        </button>
+      </nav>
 
-            <h3>
-              {role === "interviewer"
-                ? "Make every interview count."
-                : role === "recruiter"
-                  ? "Build your next great team."
-                  : "Move forward with confidence."}
-            </h3>
+      <div className="sidebar-bottom">
+        <div className="upgrade-card">
+          <div className="upgrade-icon">✦</div>
 
-            <p>{ROLE_DESCRIPTIONS[role]}</p>
+          <h3>
+            {role === "interviewer"
+              ? "Make every interview count."
+              : role === "recruiter"
+                ? "Build your next great team."
+                : "Move forward with confidence."}
+          </h3>
 
-            <button
-              type="button"
-              onClick={() => setActiveTab("Overview")}
-            >
-              Go to Overview →
-            </button>
-          </div>
-
-          <div className="profile">
-            <div className="avatar">
-              {(user?.username || "U")
-                .charAt(0)
-                .toUpperCase()}
-            </div>
-
-            <div className="profile-info">
-              <strong>{user?.username || "My Account"}</strong>
-              <span>
-                {ROLE_LABELS[role] || "Workspace"}
-              </span>
-            </div>
-          </div>
+          <p>{ROLE_DESCRIPTIONS[role]}</p>
 
           <button
             type="button"
-            className="text-button"
-            onClick={handleLogout}
-            style={{
-              width: "100%",
-              marginTop: 12,
-              padding: 10,
-              borderRadius: 10,
-              cursor: "pointer",
-            }}
+            onClick={() => setActiveTab("Overview")}
           >
-            ↪ Sign Out
+            Go to Overview →
           </button>
         </div>
-      </aside>
-    );
-  }
+
+      </div>
+    </aside>
+  );
+}
+
 
   function renderTopbar() {
     return (
